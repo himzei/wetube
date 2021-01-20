@@ -24,15 +24,14 @@ const DELETE_VIDEO = "/:id/delete";
 // Github
 
 const GITHUB = "/auth/github";
-const GITHUB_CALLBACK = "/auth/github/callback"
+const GITHUB_CALLBACK = "/auth/github/callback";
 
 const FB = "/auth/facebook";
 const FB_CALLBACK = "/auth/facebook/callback";
 
-const API = "/api"; 
-const REGISTER_VIEW = "/:id/view"
-
-
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+const ADD_COMMENT = "/:id/comment";
 
 const routes = {
   home: HOME,
@@ -42,10 +41,10 @@ const routes = {
   search: SEARCH,
   users: USERS,
   userDetail: (id) => {
-    if(id) {
+    if (id) {
       return `/users/${id}`;
-    }else {
-      return USER_DETAIL
+    } else {
+      return USER_DETAIL;
     }
   },
   editProfile: EDIT_PROFILE,
@@ -55,33 +54,33 @@ const routes = {
   videoDetail: (id) => {
     if (id) {
       return `/videos/${id}`;
-
-    }else {
+    } else {
       return VIDEO_DETAIL;
     }
   },
   editVideo: (id) => {
-    if(id) {
+    if (id) {
       return `/videos/${id}/edit`;
-    }else {
+    } else {
       return EDIT_VIDEO;
     }
   },
   deleteVideo: (id) => {
-    if(id) {
-      return `/videos/${id}/delete`
-    }else{
-      return DELETE_VIDEO
+    if (id) {
+      return `/videos/${id}/delete`;
+    } else {
+      return DELETE_VIDEO;
     }
-  }, 
+  },
   gitHub: GITHUB,
-  githubCallback: GITHUB_CALLBACK, 
+  githubCallback: GITHUB_CALLBACK,
   me: ME,
   facebook: FB,
   facebookCallback: FB_CALLBACK,
 
-  api: API, 
-  registerView: REGISTER_VIEW
+  api: API,
+  registerView: REGISTER_VIEW,
+  addComment: ADD_COMMENT,
 };
 
 export default routes;
