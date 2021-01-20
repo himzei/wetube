@@ -9,6 +9,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
+import "@babel/polyfill";
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes"
 import { localsMiddleware } from "./middlewares";
@@ -20,7 +21,10 @@ const app = express()
 
 const CokieStore = MongoStore(session)
 
-app.use(helmet());
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+    }));
 app.use(function(req, res, next) {
     res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
     return next();

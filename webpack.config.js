@@ -1,14 +1,14 @@
-const path = require("path");
 
+const path = require("path");
 const autoprefixer = require("autoprefixer");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
 const OUTPUT_DIR = path.join(__dirname, "static");
 
 const config = {
-  entry: ["@babel/polyfill", ENTRY_FILE],
+  entry: ['@babel/polyfill', ENTRY_FILE],
   mode: MODE,
   module: {
     rules: [
@@ -16,9 +16,9 @@ const config = {
         test: /\.(js)$/,
         use: [
           {
-            loader: "babel-loader"
-          }
-        ]
+            loader: "babel-loader",
+          },
+        ],
       },
       {
         test: /\.(scss)$/,
@@ -37,7 +37,7 @@ const config = {
                   [
                     "autoprefixer",
                     {
-                      browsers: "cover 99.5%",
+                      overrideBrowserlist: "cover 99.5%",
                     },
                   ],
                 ],
@@ -59,7 +59,7 @@ const config = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].css",
+      filename: "styles.css",
     }),
   ],
 };
