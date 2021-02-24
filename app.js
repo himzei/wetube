@@ -32,7 +32,7 @@ app.use(function(req, res, next) {
     });
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"))
-app.use("/build", express.static("build"))
+app.use("/static", express.static("static"))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan("dev"))

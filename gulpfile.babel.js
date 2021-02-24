@@ -14,23 +14,23 @@ sass.compiler = require("node-sass");
 
 const routes = {
   pug: {
-    watch: "src/**/*.pug",
-    src: "src/*.pug",
-    dest: "build",
+    watch: "assets/**/*.pug",
+    src: "assets/*.pug",
+    dest: "static",
   },
   img: {
-    src: "src/img/*",
-    dest: "build/img",
+    src: "assets/img/*",
+    dest: "static/img",
   },
   css: {
-    watch: "src/scss/**/*.scss",
-    src: "src/scss/styles.scss",
-    dest: "build/css",
+    watch: "assets/scss/**/*.scss",
+    src: "assets/scss/styles.scss",
+    dest: "static/css",
   },
   js: {
-    watch: "src/js/**/*.js",
-    src: "src/js/main.js",
-    dest: "build/js",
+    watch: "assets/js/**/*.js",
+    src: "assets/js/main.js",
+    dest: "static/js",
   },
 };
 
@@ -40,9 +40,9 @@ const pug = () =>
     .pipe(gpug())
     .pipe(gulp.dest(routes.pug.dest));
 
-const clean = () => del(["build/", ".publish"]);
+const clean = () => del(["static/", ".publish"]);
 
-const webserver = () => gulp.src("build").pipe(ws({ livereload: true }));
+const webserver = () => gulp.src("static").pipe(ws({ livereload: true }));
 
 const img = () =>
   gulp.src(routes.img.src, {allowEmpty: true}).pipe(image()).pipe(gulp.dest(routes.img.dest));
@@ -72,7 +72,7 @@ const js = () =>
     )
     .pipe(gulp.dest(routes.js.dest));
 
-const gh = () => gulp.src("build/**/*").pipe(ghPages());
+const gh = () => gulp.src("static/**/*").pipe(ghPages());
 
 const watch = () => {
   gulp.watch(routes.pug.watch, pug);
