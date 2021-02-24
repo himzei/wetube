@@ -26,6 +26,7 @@ const sendComment = async comment => {
       comment
     }
   });
+  
   if (response.status === 200) {
     addComment(comment);
   }
@@ -33,9 +34,10 @@ const sendComment = async comment => {
 
 const handleSubmit = event => {
   event.preventDefault();
-  const commentInput = addCommentForm.querySelector("input");
+  const commentInput = addCommentForm.querySelector("input");  
   const comment = commentInput.value;
-  sendComment(comment);
+
+  sendComment(comment)
   commentInput.value = "";
 };
 
