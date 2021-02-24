@@ -10,12 +10,12 @@ header.header
             ul
                 if !loggedUser
                     li
-                        a(href=routes.join) Join
+                        a(href=routes.join) Joins
                     li
                         a(href=routes.login) Log In
                 else 
                     li
-                        a(href=`/videos${routes.upload}`) Upload
+                        a(href=`/videos${routes.upload}`) Uploads
                     li
                         a(href=routes.me) Profile
                     li
