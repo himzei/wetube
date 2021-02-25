@@ -40,7 +40,7 @@ const pug = () =>
     .pipe(gpug())
     .pipe(gulp.dest(routes.pug.dest));
 
-const clean = () => del(["static/", ".publish"]);
+const clean = () => del([".publish"]);
 
 const webserver = () => gulp.src("static").pipe(ws({ livereload: true }));
 
